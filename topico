@@ -1,0 +1,11 @@
+#CREAR UN TOPICO
+docker exec -it <CONTAINER_ID_O_NOMBRE> kafka-topics --create --topic mi-topico --bootstrap-server localhost:9092 --partitions 3 --replication-factor 1
+
+#LISTAR LOS TOPICOS DENTRO DEL CONTENEDOR
+docker exec -it <CONTAINER_ID_O_NOMBRE> kafka-topics --list --bootstrap-server localhost:9092
+
+#PROPIEDADES DE UN TOPICO
+docker exec -it <CONTAINER_ID_O_NOMBRE> kafka-topics --describe --topic <nombre_del_topico> --bootstrap-server localhost:9092
+
+#bash para ver los mensajes de un topico
+docker exec -it kafka-producer-kafka-1 kafka-console-consumer --bootstrap-server localhost:9092 --topic mi-topico --from-beginning
